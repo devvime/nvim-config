@@ -56,9 +56,25 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
-vim.keymap.set('i', '{', '{}<Left>')
-vim.keymap.set('i', '(', '()<Left>')
-vim.keymap.set('i', '[', '[]<Left>')
-vim.keymap.set('i', "'", "''<Left>")
-vim.keymap.set('i', '"', '""<Left>')
-vim.keymap.set('i', '`', '``<Left>')
+vim.keymap.set("i", "{", "{}<Left>")
+vim.keymap.set("i", "(", "()<Left>")
+vim.keymap.set("i", "[", "[]<Left>")
+vim.keymap.set("i", "'", "''<Left>")
+vim.keymap.set("i", '"', '""<Left>')
+vim.keymap.set("i", "`", "``<Left>")
+
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("intelephense")
+vim.lsp.enable("clangd")
+vim.lsp.enable("omnisharp")
+vim.lsp.enable("dockerls")
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+vim.lsp.config("pyright", { capabilities = capabilities })
+vim.lsp.config("intelephense", { capabilities = capabilities })
+vim.lsp.config("jdtls", { capabilities = capabilities })
