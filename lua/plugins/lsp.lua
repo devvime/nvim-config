@@ -3,6 +3,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     -- Mason
@@ -35,15 +36,10 @@ return {
       automatic_installation = true,
     })
 
-    -- ⚠️ Neovim 0.11+ (nova API)
-    vim.lsp.config("ts_ls", {})
-    vim.lsp.config("html", {})
-    vim.lsp.config("cssls", {})
-    vim.lsp.config("jsonls", {})
-    vim.lsp.config("pyright", {})
-    vim.lsp.config("intelephense", {})
-    vim.lsp.config("clangd", {})
-    vim.lsp.config("omnisharp", {})
-    vim.lsp.config("dockerls", {})
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local servers = { "ts_ls", "html", "cssls", "jsonls", "pyright", "intelephense", "clangd", "omnisharp", "dockerls" }
+    for _, server in ipairs(servers) do
+      vim.lsp.config(server, { capabilities = capabilities })
+    end
   end,
 }

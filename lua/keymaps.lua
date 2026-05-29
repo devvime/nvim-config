@@ -60,15 +60,9 @@ map("n", "<C-`>", ":ToggleTerm<CR>", opts)
 -- =========================
 -- Buffers (abas)
 -- =========================
-map("n", "<C-Tab>", ":bnext<CR>", opts)
-map("n", "<C-S-Tab>", ":bprevious<CR>", opts)
-map("n", "<C-w>", ":bdelete<CR>", opts)                   -- Close tab
-
--- Tabs estilo VS Code
 vim.keymap.set("n", "<C-Tab>", ":BufferLineCycleNext<CR>", { silent = true })
 vim.keymap.set("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
-
-vim.keymap.set("n", "<C-w>", ":bdelete<CR>", { silent = true }) -- fechar aba
+vim.keymap.set("n", "<C-w>", ":bdelete<CR>", { silent = true })
 
 -- Shift + arrows = seleção
 vim.keymap.set("n", "<S-Left>", "v<Left>")

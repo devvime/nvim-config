@@ -2,7 +2,7 @@
 -- Lazy.nvim bootstrap
 -- ======================
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -38,20 +38,26 @@ vim.api.nvim_set_hl(0, "NvimTreeVertSplit", { bg = "NONE" })
 -- VS Code-like options
 -- ======================
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.cursorline = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:1"
+vim.opt.cursorlineopt = "number"
+vim.opt.numberwidth = 4
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.wrap = false
-vim.opt.relativenumber = false
-vim.opt.signcolumn = "yes:1"
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
-vim.opt.numberwidth = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("intelephense")
+vim.lsp.enable("clangd")
+vim.lsp.enable("omnisharp")
+vim.lsp.enable("dockerls")
+
+vim.opt.clipboard = "unnamedplus"
