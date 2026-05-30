@@ -193,6 +193,16 @@ Para instalar servidores adicionais manualmente: `:Mason`
 | `Shift+Home` | Selecionar até início da linha |
 | `Shift+End` | Selecionar até fim da linha |
 
+### Comentários
+
+| Atalho | Ação |
+|--------|------|
+| `gcc` | Comentar/descomentar linha atual |
+| `gc` + movimento | Comentar/descomentar com movimento (ex: `gcap` para parágrafo) |
+| `gc` (modo visual) | Comentar/descomentar seleção |
+
+> Atalho nativo do Neovim (>= 0.10), sem necessidade de plugin.
+
 ### Indentação (modo visual)
 
 | Atalho | Ação |
