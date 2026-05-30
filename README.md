@@ -4,6 +4,59 @@ Configuração do Neovim com visual estilo VS Code, LSP completo, Copilot e Git 
 
 ---
 
+## Instalando o Neovim (AppImage — versão mais recente)
+
+### 1. Remover versões antigas
+
+```bash
+# Remover instalação via apt
+sudo apt remove --purge neovim neovim-runtime -y
+sudo apt autoremove -y
+
+# Remover instalação via snap
+sudo snap remove nvim
+
+# Remover instalação via flatpak
+flatpak uninstall io.neovim.nvim -y
+
+# Remover binário instalado manualmente
+sudo rm -f /usr/local/bin/nvim
+sudo rm -f /usr/bin/nvim
+
+# Remover AppImage anterior (se houver)
+sudo rm -f /opt/nvim.appimage
+sudo rm -f /usr/local/bin/nvim
+```
+
+### 2. Baixar e instalar o AppImage mais recente
+
+```bash
+# Baixar o AppImage estável mais recente
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+
+# Tornar executável
+chmod +x nvim-linux-x86_64.appimage
+
+# Mover para um local global
+sudo mv nvim-linux-x86_64.appimage /opt/nvim.appimage
+
+# Criar symlink para usar como "nvim" no terminal
+sudo ln -sf /opt/nvim.appimage /usr/local/bin/nvim
+```
+
+### 3. Verificar instalação
+
+```bash
+nvim --version
+```
+
+> Se aparecer o erro `AppImages require FUSE to run`, instale o FUSE:
+> ```bash
+> sudo apt install libfuse2
+> ```
+
+---
+
 ## Requisitos
 
 - Neovim >= 0.11
@@ -91,6 +144,8 @@ Instalados automaticamente pelo Mason:
 | PHP | `intelephense` |
 | C / C++ | `clangd` |
 | C# | `omnisharp` |
+| Java | `jdtls` |
+| SCSS | `somesass_ls` |
 | Docker | `dockerls` |
 
 Para instalar servidores adicionais manualmente: `:Mason`

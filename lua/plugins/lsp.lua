@@ -30,6 +30,12 @@ return {
         -- C#
         "omnisharp",
 
+        -- Java
+        "jdtls",
+
+        -- SCSS
+        "somesass_ls",
+
         -- Docker
         "dockerls",
       },
@@ -37,7 +43,7 @@ return {
     })
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local servers = { "ts_ls", "html", "cssls", "jsonls", "pyright", "intelephense", "clangd", "omnisharp", "dockerls" }
+    local servers = { "ts_ls", "html", "cssls", "jsonls", "pyright", "intelephense", "clangd", "omnisharp", "jdtls", "somesass_ls", "dockerls" }
     for _, server in ipairs(servers) do
       vim.lsp.config(server, { capabilities = capabilities })
     end
